@@ -1,0 +1,173 @@
+
+//变量文件
+@import "_variables"; 
+
+//字体文件
+// @import "_font";
+
+// 函数文件
+@import "_mixins";
+
+
+.pageNav{
+	height: 50px;
+	line-height: 50px;
+	padding-left: 20px;
+	font-size: $font-size-16;
+	color: #666;
+	background-color: #f9f9f9;
+}
+.banner{
+	position: relative;
+	height: 340px;
+	overflow: hidden;
+	@include flex-row(center,center);
+	img{
+		width: 100%;
+		height: auto;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 0;
+		min-width: 1440px;
+	}
+	.content{
+		z-index: 1;
+		color: #fff;
+		text-align: center;
+		margin-top: 30px;
+		h1{
+			font-size: $font-size-48;
+			margin-bottom: 10px;
+		}
+		p{
+			font-size: $font-size-28;
+			font-family: pfExtraLight;
+			margin-bottom: 40px;
+		}
+		button{}
+	}
+}
+.moduleBox{
+	ul{}
+	li{
+		@include flex-row(space-between,center);
+		margin: 100px 0;
+	}
+	.content{
+		width: 40%;
+		box-sizing: border-box;
+		padding-left: 5%;
+	}
+	h2{
+		font-size: $font-size-36;
+		margin-bottom: 20px;
+		font-weight: bold;
+		color: #333;
+	}
+	p{
+		line-height: 30px;
+		color: #666;
+	}
+	.imgBox{
+		width: 725px;
+		max-width: 60%;
+		overflow: hidden;
+	}
+	img{
+		width: 725px;
+		height: 274px;
+	}
+}
+
+.tryBtn{
+	text-align: center;
+	margin: 100px 0;
+	button{}
+}
+
+
+
+@media only screen and (max-width: 1024px){
+	.mainBox{
+		padding-bottom: 6.25rem;
+	}
+	#footer-pc{
+		display: none;
+	}
+	.pageNav{
+		display: none;
+	}
+	.banner{
+		height: 7.75rem;
+		img{
+			min-width: 64.0rem;
+		}
+		.content{
+			margin-top: 0;
+			h1{
+				font-size: 1.5rem;
+				margin-bottom: 0.3125rem;
+			}
+			p{
+				font-size: 1.0rem;
+				margin-bottom: 0;
+				font-family: pfLight;
+			}
+			button{
+				display: none;
+			}
+		}
+	}
+
+	.moduleBox{
+		li{
+			margin: 2.5rem 0;
+		}
+		.content{
+			width: 40%;
+			padding-left: 0;
+		}
+		h2{
+			font-size: 1.0rem;
+			margin-bottom: 0.3125rem;
+		}
+		p{
+			line-height: 1.125rem;
+			font-size: 0.75rem;
+
+			font-family: pfLight;
+			br{
+				display: none;
+			}
+		}
+		.imgBox{
+			width: 50%;
+			max-width: 50%;
+			border-radius: 3.125rem;
+			height: 6.25rem;
+			overflow: hidden;
+		}
+		img{
+			width: auto;
+			height: 100%;
+		}
+	}
+
+	.tryBtn{
+		text-align: center;
+		margin: 0;
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #fff;
+		border-top: 1px solid #eee;
+		padding: 0.625rem 0;
+		z-index: 100;
+		button{}
+	}
+}

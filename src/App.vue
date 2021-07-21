@@ -1,18 +1,15 @@
 <template>
-  <div class="pageBox">
-    <Header />
-    <router-view/>
-  </div>
+   <router-view></router-view>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Header from '@/components/Header.vue'
+import { defineComponent } from 'vue'
+import LayoutBox from '@/components/LayoutBox.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
-  comments: {
-    Header
+  component: {
+    LayoutBox
   }
 })
 </script>

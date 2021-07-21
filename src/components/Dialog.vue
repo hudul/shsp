@@ -1,0 +1,135 @@
+<template>
+  <div class="popBoxBg" v-show="isShow">
+    <div class="popBox">
+      <img src="@/assets/icon/close.png" @click="handelClose" class="close">
+      <h3>申请免费试用</h3>
+      <div class="inputBox">
+        <input type="text" v-model="centerName" placeholder="机构名称" />
+      </div>
+      <div class="inputBox">
+        <input type="text" v-model="contactName" placeholder="联系人姓名" />
+      </div>
+      <div class="inputBox">
+        <input type="text" v-model="phone" placeholder="联系人手机" />
+      </div>
+      <button class="button1 btnSize3 btnStyle1" @click="submitForm">点击申请</button>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'Dialog',
+  data () {
+    return {
+      isShow: false, // this.$store.state.freeTrialInfo.isShow
+      centerName: '',
+      contactName: '',
+      phone: ''
+    }
+  },
+  setup () {
+    return {}
+  },
+  updated () {
+    console.log((this as any).$store)
+  },
+  methods: {
+    handelClose () {
+      this.centerName = ''
+      this.contactName = ''
+      this.phone = ''
+      // this.$store.commit('setFreeTrialInfo', {
+      //   busType: 0,
+      //   show: false
+      // })
+    }
+  }
+})
+</script>
+
+<style lang="scss" scoped>
+  .popBoxBg{
+    position: fixed;
+    background-color: rgba(255,255,255,.5);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1001;
+    @include flex-row(center,center);
+  }
+  .popBox{
+    width: 515px;
+    height: 450px;
+    text-align: center;
+    position: relative;
+    padding: 40px 100px 60px 100px;
+    box-sizing: border-box;
+    background-image: linear-gradient(180deg, #4392CA 0%, #20599A 100%);
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(100,100,100,.3);
+    h3{
+      color: #fff;
+      margin-bottom: 40px;
+    }
+    .inputBox{
+      margin-bottom: 15px;
+      input{
+        background: #F9F9F9;
+        border: 1px solid #CCCCCC;
+        border-radius: 6px;
+        height: 50px;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+    .button1{
+      margin-top: 40px;
+    }
+    .close{
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .popBox{
+      margin-left: 1.25rem;
+      margin-right: 1.25rem;
+      max-width: 32.1875rem;
+      max-height: 28.125rem;
+      padding: 2.5rem 1.25rem 3.75rem 1.25rem;
+      h3{
+        margin-bottom: 2.5rem;
+        font-size: 1.125rem;
+      }
+      .inputBox{
+        margin-bottom: 0.9375rem;
+        input{
+          border-radius: 0.375rem;
+          height: 3.125rem;
+          padding: 0.625rem;
+        }
+      }
+      .button1{
+        margin-top: 2.5rem;
+      }
+      .close{
+        right: 1.25rem;
+        top: 1.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+</style>
