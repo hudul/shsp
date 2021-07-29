@@ -1,7 +1,7 @@
 <template>
-  <div class="popBoxBg" v-show="isShow">
+  <div class="popBoxBg" v-show="dialogInfo.isShow">
     <div class="popBox">
-      <img src="@/assets/icon/close.png" @click="handelClose" class="close">
+      <img src="@/assets/icon/close.png" @click="dialogInfo.setShow(false)" class="close">
       <h3>申请免费试用</h3>
       <div class="inputBox">
         <input type="text" v-model="centerName" placeholder="机构名称" />
@@ -18,33 +18,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, toRefs, reactive, inject } from 'vue'
+import { useStore } from 'vuex'
 
 export default defineComponent({
   name: 'Dialog',
-  data () {
-    return {
-      isShow: false, // this.$store.state.freeTrialInfo.isShow
+  setup () {
+    const store = useStore()
+    const submitForm = reactive({
       centerName: '',
       contactName: '',
       phone: ''
+    })
+    const dialogInfo = inject('dialogInfo')
+    return {
+      store,
+      dialogInfo,
+      ...toRefs(submitForm)
     }
-  },
-  setup () {
-    return {}
-  },
-  updated () {
-    console.log((this as any).$store)
   },
   methods: {
     handelClose () {
       this.centerName = ''
       this.contactName = ''
       this.phone = ''
-      // this.$store.commit('setFreeTrialInfo', {
-      //   busType: 0,
-      //   show: false
-      // })
+      this.store.commit('setFreeTrialInfo', {
+        busType: 0,
+        show: false
+      })
     }
   }
 })

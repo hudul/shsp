@@ -1,11 +1,11 @@
 <template>
   <div class="mainBox">
     <banner />
-    <Title :myTitle="我们的服务" />
+    <Title myTitle="我们的服务" />
     <Service />
-    <Title :myTitle="我们的优势" />
+    <Title myTitle="我们的优势" />
     <Superiority />
-    <Title :myTitle="我们的客户" />
+    <Title myTitle="我们的客户" />
     <Customer />
   </div>
 </template>

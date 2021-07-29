@@ -1,27 +1,13 @@
-import { createStore, StoreOptions } from 'vuex'
+import { createStore } from 'vuex'
+import actions from './actions'
+import ActionTypes from './actionTypes'
+import mutations from './mutations'
+import state from './state'
 
 export default createStore({
-  state: {
-    freeTrialInfo: {
-      busType: 0,
-      show: false,
-      centerName: '',
-      contactName: '',
-      phone: ''
-    }
-  },
-  mutations: {
-    setFreeTrialInfo (state, playload) {
-      state.freeTrialInfo = {
-        ...state.freeTrialInfo,
-        busType: playload.busType,
-        show: playload.show
-      }
-    }
-  },
-  actions: {
-
-  },
+  state,
+  mutations,
+  actions,
   modules: {
   }
 })

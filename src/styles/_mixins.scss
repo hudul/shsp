@@ -3,7 +3,7 @@
 @mixin btn-size($width,$height,$font-size){
 	width: $width;
 	height: $height;
-	border-radius: $height/2;
+	border-radius: ($height,2);
 	font-size: $font-size;
 	line-height: $height;
 	text-align: center;
@@ -25,7 +25,7 @@
 @mixin radius($width,$height){
 	width: $width;
 	height: $height;
-	border-radius: $height/2
+	border-radius: ($height,2)
 }
 
 //  flex-direction: row | row-reverse | column | column-reverse; 
